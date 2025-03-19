@@ -7,10 +7,10 @@ const SingleCharacter = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://akabab.github.io/starwars-api/api/id/${id}.json`)
+        fetch(`https://www.swapi.tech/api/people/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                setCharacter(data);
+                setCharacter(data.result.properties);
                 setLoading(false);
             })
             .catch((error) => console.error("Error fetching character:", error));
@@ -21,8 +21,15 @@ const SingleCharacter = () => {
             {loading ? <p>Loading...</p> : character && (
                 <>
                     <h1>{character.name}</h1>
-                    <img src={character.image} alt={character.name} className="img-fluid rounded" />
-                    <p className="mt-3">{character.affiliation || "Unknown Affiliation"}</p>
+                    <img 
+                        src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/characters/${id}.jpg`} 
+                        alt={character.name} 
+                        className="img-fluid rounded"
+                    />
+                    <p><strong>Birth Year:</strong> {character.birth_year}</p>
+                    <p><strong>Height:</strong> {character.height} cm</p>
+                    <p><strong>Mass:</strong> {character.mass} kg</p>
+                    <p><strong>Gender:</strong> {character.gender}</p>
                     <Link to="/" className="btn btn-dark mt-3">Back to Home</Link>
                 </>
             )}

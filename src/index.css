@@ -1,99 +1,56 @@
-/* 🎨 Tema Oscuro Star Wars */
+/* Tema Oscuro */
 body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
 }
 
-/* 🏠 Contenedor principal */
-.container {
-    padding-top: 20px;
-}
-
-/* 🌟 Estilos de la Cabecera */
-.navbar {
-    background-color: #000; /* Negro puro */
-    border-bottom: 2px solid #ffe81f; /* Amarillo Star Wars */
-}
-
-.navbar-brand {
-    color: #ffe81f !important;
-    font-size: 1.8rem;
+/* Estilos para títulos */
+.star-wars-title {
+    font-size: 2.5rem;
     font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 0px 0px 8px rgba(255, 232, 31, 0.8);
+    color: yellow;
+    text-shadow: 2px 2px 10px rgba(255, 255, 0, 0.8);
 }
 
-.navbar-brand:hover {
-    color: #ffffff !important;
-    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.9);
+/* Estilos para categorías */
+.category-title {
+    margin-top: 30px;
+    font-size: 2rem;
+    text-decoration: underline;
+    color: yellow;
+    text-shadow: 2px 2px 8px rgba(255, 255, 0, 0.8);
 }
 
-/* ✨ Títulos */
-h1, h2 {
-    color: #ffe81f; /* Amarillo Star Wars */
-    text-align: center;
-    text-shadow: 2px 2px 8px rgba(255, 232, 31, 0.7);
-}
-
-/* 🎴 Tarjetas */
+/* Tarjetas */
 .card {
-    background-color: #111; /* Oscuro */
-    border: 2px solid #333;
-    color: #ddd; /* Gris claro para mayor legibilidad */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    background-color: #111;
+    border: 1px solid #333;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* 🔲 Contenedor de imágenes para evitar cortes */
-.image-container {
-    width: 100%;
-    height: 250px; /* Mantiene el mismo tamaño en todas las tarjetas */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: black;
-    overflow: hidden;
-}
-
-/* 📷 Imágenes */
-.card-img-top {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* Asegura que la imagen se vea completa */
-    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.3)); /* Efecto de luz sutil */
-}
-
-/* 🎭 Efecto Hover - Iluminación estilo sable láser */
 .card:hover {
     transform: scale(1.05);
-    border: 2px solid var(--neon-color);
-    box-shadow: 0px 0px 15px var(--neon-color);
+    box-shadow: 0px 0px 15px 3px rgba(255, 255, 0, 0.7);
 }
 
-/* 🟢 Asignación de colores aleatorios a cada tarjeta */
-.card:nth-child(5n + 1) { --neon-color: #00ffcc; }  /* Turquesa */
-.card:nth-child(5n + 2) { --neon-color: #ff073a; }  /* Rojo */
-.card:nth-child(5n + 3) { --neon-color: #00ff00; }  /* Verde */
-.card:nth-child(5n + 4) { --neon-color: #ff8000; }  /* Naranja */
-.card:nth-child(5n + 5) { --neon-color: #007bff; }  /* Azul */
+/* Imágenes en las tarjetas */
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: #000;
+}
 
-/* 🎭 Botones */
+/* Botones */
 .btn-dark {
-    background-color: #222;
-    border: 1px solid #ffe81f;
-    color: #ffe81f;
-    transition: all 0.3s ease-in-out;
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
 }
 
 .btn-dark:hover {
-    background-color: #ffe81f;
-    color: #000;
-}
-
-/* 🔽 Pie de Página */
-.footer {
-    background-color: #000;
-    color: #ffe81f;
-    padding: 10px;
-    text-align: center;
+    background-color: #ffcc00;
+    color: black;
 }

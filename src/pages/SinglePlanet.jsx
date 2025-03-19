@@ -7,10 +7,10 @@ const SinglePlanet = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://swapi.dev/api/planets/${id}/`)
+        fetch(`https://www.swapi.tech/api/planets/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                setPlanet(data);
+                setPlanet(data.result.properties);
                 setLoading(false);
             })
             .catch((error) => console.error("Error fetching planet:", error));
@@ -22,13 +22,13 @@ const SinglePlanet = () => {
                 <>
                     <h1>{planet.name}</h1>
                     <img 
-                        src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/planets/${id}.jpg`}
-                        alt={planet.name}
+                        src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/planets/${id}.jpg`} 
+                        alt={planet.name} 
                         className="img-fluid rounded"
                     />
-                    <p className="mt-3">Climate: {planet.climate}</p>
-                    <p>Population: {planet.population}</p>
-                    <p>Terrain: {planet.terrain}</p>
+                    <p><strong>Climate:</strong> {planet.climate}</p>
+                    <p><strong>Terrain:</strong> {planet.terrain}</p>
+                    <p><strong>Population:</strong> {planet.population}</p>
                     <Link to="/" className="btn btn-dark mt-3">Back to Home</Link>
                 </>
             )}
