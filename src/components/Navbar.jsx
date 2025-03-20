@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import Favorites from "./Favorites";
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-light bg-light">
+        <nav className="navbar navbar-dark bg-black">
             <div className="container">
-                <Link to="/">
-                    <span className="navbar-brand mb-0 h1">Star Wars Databank</span>
+                <Link to="/" className="navbar-brand text-warning">
+                    Star Wars Databank
                 </Link>
+                <Favorites />
             </div>
         </nav>
     );

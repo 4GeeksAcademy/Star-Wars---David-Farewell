@@ -23,6 +23,7 @@ const SingleCharacter = () => {
                     <h1>{character.name}</h1>
                     <img 
                         src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/characters/${id}.jpg`} 
+                        onError={(e) => e.target.style.display = "none"}
                         alt={character.name} 
                         className="img-fluid rounded"
                     />

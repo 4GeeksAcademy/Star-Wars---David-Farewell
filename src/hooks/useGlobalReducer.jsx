@@ -1,5 +1,5 @@
-import { useContext, useReducer, createContext } from "react";
-import { storeReducer, initialStore } from "../store"; // ✅ Corrección aquí
+import { createContext, useContext, useReducer } from "react";
+import { storeReducer, initialStore } from "../store"; // ✅ Corrección
 
 const StoreContext = createContext();
 
@@ -13,7 +13,7 @@ export function StoreProvider({ children }) {
   );
 }
 
-export function useGlobalReducer() {  // ✅ Aquí estaba el error, antes era export default
+export function useGlobalReducer() { 
   const { dispatch, store } = useContext(StoreContext);
   return { dispatch, store };
 }

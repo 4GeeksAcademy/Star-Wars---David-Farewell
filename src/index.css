@@ -1,72 +1,42 @@
-/* 🎨 Tema Oscuro Star Wars */
+/* Estilo General */
 body {
     background-color: #0a0a0a;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
 }
 
-/* 🏠 Contenedor principal */
-.container {
-    padding-top: 20px;
-}
-
-/* ✨ Títulos */
-h1, h2 {
-    color: #ffe81f; /* Amarillo Star Wars */
-    text-align: center;
-    text-shadow: 2px 2px 8px rgba(255, 232, 31, 0.7);
-}
-
-/* 🎴 Tarjetas */
-.card {
-    background-color: #1b1b1b;
-    border: 2px solid #333;
-    color: #fff;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* 🔲 Contenedor de imágenes para evitar cortes */
-.image-container {
-    width: 100%;
-    height: 250px; /* Mantiene el mismo tamaño en todas las tarjetas */
+/* Loader */
+.loader-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: black;
-    overflow: hidden;
+    height: 60vh;
 }
 
-/* 📷 Imágenes */
-.card-img-top {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* Asegura que la imagen se vea completa */
-    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.3)); /* Efecto de luz sutil */
+.planet-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Star_Wars_Logo.svg/1024px-Star_Wars_Logo.svg.png") 
+        no-repeat center/cover;
+    animation: spin 1.5s linear infinite;
 }
 
-/* 🎭 Efecto Hover - Iluminación estilo sable láser */
-.card:hover {
-    transform: scale(1.05);
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 12px var(--neon-color);
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* 🟢 Asignación de colores aleatorios a cada tarjeta */
-.card:nth-child(5n + 1) { --neon-color: #00ffcc; }  /* Turquesa */
-.card:nth-child(5n + 2) { --neon-color: #ff073a; }  /* Rojo */
-.card:nth-child(5n + 3) { --neon-color: #00ff00; }  /* Verde */
-.card:nth-child(5n + 4) { --neon-color: #ff8000; }  /* Naranja */
-.card:nth-child(5n + 5) { --neon-color: #007bff; }  /* Azul */
-
-/* 🎭 Botones */
-.btn-dark {
-    background-color: #222;
-    border: 1px solid #ffe81f;
-    color: #ffe81f;
-    transition: all 0.3s ease-in-out;
+/* Favoritos */
+.btn-favorite {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.btn-dark:hover {
-    background-color: #ffe81f;
-    color: #000;
+.btn-favorite.active {
+    color: black;
+    transform: scale(1.2);
 }
