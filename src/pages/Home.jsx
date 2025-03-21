@@ -45,7 +45,6 @@ const Home = () => {
 
     return (
         <div className="container">
-            <h1 className="star-wars-title">Star Wars Databank</h1>
 
             {/* Characters */}
             <h2 className="category-title">Characters</h2>

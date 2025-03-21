@@ -1,6 +1,6 @@
 /* 🌌 Fondo general oscuro */
 body {
-    background-color: #0a0a0a;
+    background-color: #0b0b0b;
     color: #ffffff;
     font-family: Arial, sans-serif;
 }
@@ -12,19 +12,20 @@ body {
     padding: 20px;
 }
 
-/* 🌟 Títulos */
+/* Títulos */
 .category-title {
-    font-size: 1.8rem;
-    color: #ffe81f;
+    font-size: 2rem;
+    color: #ffe91f;
     text-align: center;
     text-shadow: 2px 2px 8px rgba(255, 232, 31, 0.7);
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* 📌 SWIPER ESTILOS */
 .swiper {
     width: 100%;
-    padding: 20px 0;
+    padding: 40px 0;
 }
 
 .swiper-slide {
@@ -35,18 +36,18 @@ body {
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease-in-out;
     width: 280px;
-    pointer-events: auto; /* Asegura que los elementos dentro sean clickeables */
+    pointer-events: auto; /* 🔥 Permite clics dentro */
 }
 
 .swiper-slide img {
     width: 100%;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
 }
 
 .swiper-slide:hover {
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
 /* 🎭 Superposición de nombre y botones */
@@ -55,13 +56,13 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
+    padding: 30px;
     background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 10;
-    pointer-events: none; /* Permite que los elementos dentro sean clickeables */
+    pointer-events: none; 
 }
 
 /* Nombre en tarjetas */
@@ -73,18 +74,18 @@ body {
     pointer-events: auto;
 }
 
-/* 🎛 Botones en la tarjeta */
+/* Botones en la tarjeta */
 .buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin-top: 5px;
-    z-index: 15;
     position: relative;
-    pointer-events: auto; /* Permite que los botones sean clickeables */
+    z-index: 50; 
+    pointer-events: auto;
 }
 
-/* 🔘 Botón "View More" */
+/* "View More" */
 .btn-dark {
     padding: 5px 10px;
     background: #111;
@@ -93,26 +94,30 @@ body {
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s;
-    z-index: 20;
+    z-index: 60;
     pointer-events: auto;
+    position: absolute;
+    bottom: -10px; 
+    left: -20px;
 }
 
 .btn-dark:hover {
-    background: #444;
+    color: #0b0b0b;
+    background: #ffe600;
 }
 
-/* ❤️ Botón de favoritos */
+/* Botón de favoritos */
 .btn-favorite {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
     transition: transform 0.2s;
     color: white;
     position: absolute;
-    bottom: 15px;
-    right: 15px;
-    z-index: 30;
+    bottom: -10px;
+    right: -20px;
+    z-index: 60;
     pointer-events: auto;
 }
 
@@ -124,7 +129,8 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
     color: #ffe81f;
-    z-index: 5;
+    z-index: 15; /* 🔥 Ajustado para que no tape los botones */
+    pointer-events: auto;
 }
 
 .swiper-pagination-bullet {
@@ -136,12 +142,13 @@ body {
     transition-timing-function: linear !important;
 }
 
-/* 🛠 Ajustes para evitar superposición */
+/* 🛠 Evita que Swiper bloquee los clics */
 .swiper-slide {
     pointer-events: auto;
 }
 
 .swiper-slide .buttons {
     position: relative;
-    z-index: 15;
+    z-index: 50; /* 🔥 Esto fuerza a los botones a estar sobre Swiper */
+    pointer-events: auto;
 }
