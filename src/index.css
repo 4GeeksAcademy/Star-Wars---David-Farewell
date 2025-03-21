@@ -9,6 +9,7 @@ body {
 .container {
     max-width: 1200px;
     margin: auto;
+    padding: 20px;
 }
 
 /* 🌟 Títulos */
@@ -20,33 +21,31 @@ body {
     margin-bottom: 20px;
 }
 
-/* 📌 Grid para organizar tarjetas */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
+/* 📌 SWIPER ESTILOS */
+.swiper {
+    width: 100%;
+    padding: 20px 0;
 }
 
-/* 📍 Estilos de tarjetas */
-.card-container {
+.swiper-slide {
     position: relative;
-    width: 100%;
-    height: 350px;
+    background-color: #1b1b1b;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    background-color: #1b1b1b;
+    transition: transform 0.3s ease-in-out;
+    width: 280px;
+    pointer-events: auto; /* Asegura que los elementos dentro sean clickeables */
 }
 
-.card-container img {
+.swiper-slide img {
     width: 100%;
-    height: 100%;
+    height: 350px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
 }
 
-.card-container:hover img {
+.swiper-slide:hover {
     transform: scale(1.05);
 }
 
@@ -61,13 +60,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 10;
+    pointer-events: none; /* Permite que los elementos dentro sean clickeables */
 }
 
+/* Nombre en tarjetas */
 .overlay h5 {
     color: white;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
+    pointer-events: auto;
 }
 
 /* 🎛 Botones en la tarjeta */
@@ -76,6 +79,9 @@ body {
     justify-content: space-between;
     width: 100%;
     margin-top: 5px;
+    z-index: 15;
+    position: relative;
+    pointer-events: auto; /* Permite que los botones sean clickeables */
 }
 
 /* 🔘 Botón "View More" */
@@ -87,6 +93,8 @@ body {
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s;
+    z-index: 20;
+    pointer-events: auto;
 }
 
 .btn-dark:hover {
@@ -101,70 +109,39 @@ body {
     cursor: pointer;
     transition: transform 0.2s;
     color: white;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 30;
+    pointer-events: auto;
 }
 
 .btn-favorite.active {
     color: red;
 }
 
-/* 📌 📜 **Vista individual: diseño horizontal** */
-.character-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1b1b1b;
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 900px;
-    margin: 50px auto;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Imagen flotante en la vista individual */
-.character-image {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    transform: rotateY(-10deg);
-    transition: transform 0.3s ease-in-out;
-}
-
-.character-image:hover {
-    transform: rotateY(0deg);
-}
-
-/* 📊 Información de los personajes */
-.character-stats {
-    flex: 1;
-    padding: 20px;
-    text-align: left;
-}
-
-.character-stats h1 {
+/* 🏹 Ajuste para Swiper Navigation */
+.swiper-button-next,
+.swiper-button-prev {
     color: #ffe81f;
-    font-size: 2rem;
-    margin-bottom: 10px;
+    z-index: 5;
 }
 
-.character-stats p {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-/* 🔙 Botón para regresar */
-.back-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 15px;
+.swiper-pagination-bullet {
     background: #ffe81f;
-    color: black;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
 }
 
-.back-button:hover {
-    background: #d4c117;
+/* 📌 Permite loop infinito en Swiper */
+.swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+/* 🛠 Ajustes para evitar superposición */
+.swiper-slide {
+    pointer-events: auto;
+}
+
+.swiper-slide .buttons {
+    position: relative;
+    z-index: 15;
 }

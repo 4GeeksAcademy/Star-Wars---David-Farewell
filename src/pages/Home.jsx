@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import { useGlobalReducer } from "../hooks/useGlobalReducer";
 import FavoriteButton from "../components/FavoriteButton";
 
+// Importar Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+// Importar estilos de Swiper
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 const Home = () => {
     const { store } = useGlobalReducer();
     const [characters, setCharacters] = useState([]);
@@ -21,7 +30,7 @@ const Home = () => {
             ])
             .then(([charData, planetData, vehicleData]) => {
                 setCharacters(charData.results || []);
-                setPlanets(planetData.results?.slice(1) || []); 
+                setPlanets(planetData.results?.slice(1) || []); // Salta el primer planeta
                 setVehicles(vehicleData.results || []);
                 setLoading(false);
             })
@@ -38,10 +47,19 @@ const Home = () => {
         <div className="container">
             <h1 className="star-wars-title">Star Wars Databank</h1>
 
+            {/* Characters */}
             <h2 className="category-title">Characters</h2>
-            <div className="grid-container">
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={3}
+                navigation
+                loop={true}
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                className="swiper"
+            >
                 {characters.map(char => (
-                    <div key={char.uid} className="grid-item card-container">
+                    <SwiperSlide key={char.uid} className="swiper-slide">
                         <img src={getImage("characters", char.uid)} alt={char.name} />
                         <div className="overlay">
                             <h5>{char.name}</h5>
@@ -50,14 +68,23 @@ const Home = () => {
                                 <FavoriteButton item={{ uid: char.uid, name: char.name, type: "character" }} />
                             </div>
                         </div>
-                    </div>
+                    </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
 
+            {/* Planets */}
             <h2 className="category-title">Planets</h2>
-            <div className="grid-container">
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={3}
+                navigation
+                loop={true}
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                className="swiper"
+            >
                 {planets.map(planet => (
-                    <div key={planet.uid} className="grid-item card-container">
+                    <SwiperSlide key={planet.uid} className="swiper-slide">
                         <img src={getImage("planets", planet.uid)} alt={planet.name} />
                         <div className="overlay">
                             <h5>{planet.name}</h5>
@@ -66,14 +93,23 @@ const Home = () => {
                                 <FavoriteButton item={{ uid: planet.uid, name: planet.name, type: "planet" }} />
                             </div>
                         </div>
-                    </div>
+                    </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
 
+            {/* Vehicles */}
             <h2 className="category-title">Vehicles</h2>
-            <div className="grid-container">
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={3}
+                navigation
+                loop={true}
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                className="swiper"
+            >
                 {vehicles.map(vehicle => (
-                    <div key={vehicle.uid} className="grid-item card-container">
+                    <SwiperSlide key={vehicle.uid} className="swiper-slide">
                         <img src={getImage("vehicles", vehicle.uid)} alt={vehicle.name} />
                         <div className="overlay">
                             <h5>{vehicle.name}</h5>
@@ -82,9 +118,9 @@ const Home = () => {
                                 <FavoriteButton item={{ uid: vehicle.uid, name: vehicle.name, type: "vehicle" }} />
                             </div>
                         </div>
-                    </div>
+                    </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
         </div>
     );
 };
