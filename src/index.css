@@ -1,11 +1,11 @@
-/* 🌌 Fondo general oscuro */
+/* Fondo general dark */
 body {
     background-color: #0b0b0b;
     color: #ffffff;
     font-family: Arial, sans-serif;
 }
 
-/* 🏠 Contenedor principal */
+/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: auto;
@@ -22,7 +22,7 @@ body {
     margin-bottom: 50px;
 }
 
-/* 📌 SWIPER ESTILOS */
+/* SWIPER ESTILOS */
 .swiper {
     width: 100%;
     padding: 40px 0;
@@ -36,7 +36,7 @@ body {
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease-in-out;
     width: 280px;
-    pointer-events: auto; /* 🔥 Permite clics dentro */
+    pointer-events: auto; 
 }
 
 .swiper-slide img {
@@ -50,7 +50,7 @@ body {
     transform: scale(1.2);
 }
 
-/* 🎭 Superposición de nombre y botones */
+/*  Overlay Transparente Negro */
 .overlay {
     position: absolute;
     bottom: 0;
@@ -68,10 +68,11 @@ body {
 /* Nombre en tarjetas */
 .overlay h5 {
     color: white;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
     pointer-events: auto;
+    margin-bottom: 20px;
 }
 
 /* Botones en la tarjeta */
@@ -97,7 +98,7 @@ body {
     z-index: 60;
     pointer-events: auto;
     position: absolute;
-    bottom: -10px; 
+    bottom: 0px; 
     left: -20px;
 }
 
@@ -110,12 +111,12 @@ body {
 .btn-favorite {
     background: none;
     border: none;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.2s;
     color: white;
     position: absolute;
-    bottom: -10px;
+    bottom: 0px;
     right: -20px;
     z-index: 60;
     pointer-events: auto;
@@ -125,7 +126,7 @@ body {
     color: red;
 }
 
-/* 🏹 Ajuste para Swiper Navigation */
+/* Ajuste para Swiper Navigation */
 .swiper-button-next,
 .swiper-button-prev {
     color: #ffe81f;
@@ -137,18 +138,18 @@ body {
     background: #ffe81f;
 }
 
-/* 📌 Permite loop infinito en Swiper */
+/* Loop infinito  Swiper */
 .swiper-wrapper {
     transition-timing-function: linear !important;
 }
 
-/* 🛠 Evita que Swiper bloquee los clics */
+/* Evitar Swiper bloquee los clics */
 .swiper-slide {
     pointer-events: auto;
 }
 
 .swiper-slide .buttons {
     position: relative;
-    z-index: 50; /* 🔥 Esto fuerza a los botones a estar sobre Swiper */
+    z-index: 50; 
     pointer-events: auto;
 }
