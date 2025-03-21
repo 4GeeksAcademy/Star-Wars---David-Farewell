@@ -16,7 +16,7 @@ const Favorites = () => {
         const updatedFavorites = store.favorites.filter(fav => fav.uid !== item.uid);
         dispatch({ type: "REMOVE_FAVORITE", payload: item });
 
-        // LkocalStorage
+        // LocalStorage
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     };
 

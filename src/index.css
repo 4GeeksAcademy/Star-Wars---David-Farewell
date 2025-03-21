@@ -1,10 +1,17 @@
-/* Contenedor general en Home */
+/* 🌌 Fondo general oscuro */
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* 🏠 Contenedor principal */
 .container {
     max-width: 1200px;
     margin: auto;
 }
 
-/* Títulos de categorías */
+/* 🌟 Títulos */
 .category-title {
     font-size: 1.8rem;
     color: #ffe81f;
@@ -13,7 +20,7 @@
     margin-bottom: 20px;
 }
 
-/* Estilo para la cuadrícula */
+/* 📌 Grid para organizar tarjetas */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -21,13 +28,7 @@
     justify-content: center;
 }
 
-/* Tarjetas */
-.grid-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
+/* 📍 Estilos de tarjetas */
 .card-container {
     position: relative;
     width: 100%;
@@ -49,7 +50,7 @@
     transform: scale(1.05);
 }
 
-/* Superposición para los botones y el nombre */
+/* 🎭 Superposición de nombre y botones */
 .overlay {
     position: absolute;
     bottom: 0;
@@ -69,7 +70,7 @@
     text-align: center;
 }
 
-/* Botones dentro de la tarjeta */
+/* 🎛 Botones en la tarjeta */
 .buttons {
     display: flex;
     justify-content: space-between;
@@ -77,7 +78,7 @@
     margin-top: 5px;
 }
 
-/* Botón "View More" */
+/* 🔘 Botón "View More" */
 .btn-dark {
     padding: 5px 10px;
     background: #111;
@@ -92,7 +93,7 @@
     background: #444;
 }
 
-/* Botón de favoritos */
+/* ❤️ Botón de favoritos */
 .btn-favorite {
     background: none;
     border: none;
@@ -104,4 +105,66 @@
 
 .btn-favorite.active {
     color: red;
+}
+
+/* 📌 📜 **Vista individual: diseño horizontal** */
+.character-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b1b1b;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Imagen flotante en la vista individual */
+.character-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    transform: rotateY(-10deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.character-image:hover {
+    transform: rotateY(0deg);
+}
+
+/* 📊 Información de los personajes */
+.character-stats {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.character-stats h1 {
+    color: #ffe81f;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.character-stats p {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* 🔙 Botón para regresar */
+.back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: #ffe81f;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: #d4c117;
 }
