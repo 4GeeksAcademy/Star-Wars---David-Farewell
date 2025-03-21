@@ -26,7 +26,7 @@ const FavoriteButton = ({ item }) => {
 
     return (
         <button className={`btn-favorite ${isFavorite ? "active" : ""}`} onClick={toggleFavorite}>
-            {isFavorite ? "❤️" : "🤍"}
+            {isFavorite ? "💛" : "🤍"}
         </button>
     );
 };
