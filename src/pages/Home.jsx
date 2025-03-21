@@ -10,23 +10,18 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true);
-
-    
         Promise.all([
             fetch("https://www.swapi.tech/api/people").then(res => res.json()),
             fetch("https://www.swapi.tech/api/planets").then(res => res.json()),
-            fetch("https://www.swapi.tech/api/vehicles").then(res => res.json()),
-        ])
-        .then(([charData, planetData, vehicleData]) => {
+            fetch("https://www.swapi.tech/api/vehicles").then(res => res.json())
+        ]).then(([charData, planetData, vehicleData]) => {
             setCharacters(charData.results || []);
             setPlanets(planetData.results || []);
             setVehicles(vehicleData.results || []);
             setLoading(false);
-        })
-        .catch(error => console.error("Error fetching data:", error));
+        }).catch(error => console.error("Error fetching data:", error));
     }, []);
 
-    // Obtener imagenes por categoria
     const getImage = (category, id) =>
         `https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/${category}/${id}.jpg`;
 
@@ -34,64 +29,71 @@ const Home = () => {
         <div className="container text-center mt-5">
             <h1 className="star-wars-title">Star Wars Databank</h1>
 
-            {loading ? (
-                <div className="loader-container">
-                    <div className="planet-loader"></div>
-                    <p>Loading...</p>
-                </div>
-            ) : (
+            {loading ? <p className="loading-text">Loading...</p> : (
                 <>
-                    {/* Characters */}
+                    {/* Sección de Personajes */}
                     <h2 className="category-title">Characters</h2>
-                    <div className="row">
-                        {characters.map((char) => (
-                            <div key={char.uid} className="col-md-3 mb-4">
-                                <div className="card">
-                                    <img src={getImage("characters", char.uid)} className="card-img-top" alt={char.name} />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{char.name}</h5>
-                                        <Link to={`/character/${char.uid}`} className="btn btn-dark">
-                                            View More
-                                        </Link>
-                                        <FavoriteButton item={{ ...char, type: "character" }} />
+                    <div className="grid-container">
+                        {characters.map(char => (
+                            <div key={char.uid} className="grid-item">
+                                <div className="card-container">
+                                    <img 
+                                        src={getImage("characters", char.uid)}
+                                        onError={(e) => e.target.style.display = "none"}
+                                        alt={char.name}
+                                    />
+                                    <div className="overlay">
+                                        <h5>{char.name}</h5>
+                                        <div className="buttons">
+                                            <Link to={`/character/${char.uid}`} className="btn-dark">View More</Link>
+                                            <FavoriteButton item={{ ...char, type: "character" }} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Planets */}
+                    {/* Sección de Planetas */}
                     <h2 className="category-title">Planets</h2>
-                    <div className="row">
-                        {planets.map((planet) => (
-                            <div key={planet.uid} className="col-md-3 mb-4">
-                                <div className="card">
-                                    <img src={getImage("planets", planet.uid)} className="card-img-top" alt={planet.name} />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{planet.name}</h5>
-                                        <Link to={`/planet/${planet.uid}`} className="btn btn-dark">
-                                            View More
-                                        </Link>
-                                        <FavoriteButton item={{ ...planet, type: "planet" }} />
+                    <div className="grid-container">
+                        {planets.map(planet => (
+                            <div key={planet.uid} className="grid-item">
+                                <div className="card-container">
+                                    <img 
+                                        src={getImage("planets", planet.uid)}
+                                        onError={(e) => e.target.style.display = "none"}
+                                        alt={planet.name}
+                                    />
+                                    <div className="overlay">
+                                        <h5>{planet.name}</h5>
+                                        <div className="buttons">
+                                            <Link to={`/planet/${planet.uid}`} className="btn-dark">View More</Link>
+                                            <FavoriteButton item={{ ...planet, type: "planet" }} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Vehicles */}
+                    {/* Sección de Vehículos */}
                     <h2 className="category-title">Vehicles</h2>
-                    <div className="row">
-                        {vehicles.map((vehicle) => (
-                            <div key={vehicle.uid} className="col-md-3 mb-4">
-                                <div className="card">
-                                    <img src={getImage("vehicles", vehicle.uid)} className="card-img-top" alt={vehicle.name} />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{vehicle.name}</h5>
-                                        <Link to={`/vehicle/${vehicle.uid}`} className="btn btn-dark">
-                                            View More
-                                        </Link>
-                                        <FavoriteButton item={{ ...vehicle, type: "vehicle" }} />
+                    <div className="grid-container">
+                        {vehicles.map(vehicle => (
+                            <div key={vehicle.uid} className="grid-item">
+                                <div className="card-container">
+                                    <img 
+                                        src={getImage("vehicles", vehicle.uid)}
+                                        onError={(e) => e.target.style.display = "none"}
+                                        alt={vehicle.name}
+                                    />
+                                    <div className="overlay">
+                                        <h5>{vehicle.name}</h5>
+                                        <div className="buttons">
+                                            <Link to={`/vehicle/${vehicle.uid}`} className="btn-dark">View More</Link>
+                                            <FavoriteButton item={{ ...vehicle, type: "vehicle" }} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

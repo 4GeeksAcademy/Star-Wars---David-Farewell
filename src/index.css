@@ -1,42 +1,107 @@
-/* Estilo General */
-body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
+/* Contenedor general en Home */
+.container {
+    max-width: 1200px;
+    margin: auto;
 }
 
-/* Loader */
-.loader-container {
+/* Títulos de categorías */
+.category-title {
+    font-size: 1.8rem;
+    color: #ffe81f;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(255, 232, 31, 0.7);
+    margin-bottom: 20px;
+}
+
+/* Estilo para la cuadrícula */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjetas */
+.grid-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    background-color: #1b1b1b;
+}
+
+.card-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Superposición para los botones y el nombre */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 60vh;
 }
 
-.planet-loader {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Star_Wars_Logo.svg/1024px-Star_Wars_Logo.svg.png") 
-        no-repeat center/cover;
-    animation: spin 1.5s linear infinite;
+.overlay h5 {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* Botones dentro de la tarjeta */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
 }
 
-/* Favoritos */
+/* Botón "View More" */
+.btn-dark {
+    padding: 5px 10px;
+    background: #111;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-dark:hover {
+    background: #444;
+}
+
+/* Botón de favoritos */
 .btn-favorite {
-    background: transparent;
+    background: none;
     border: none;
-    font-size: 20px;
+    font-size: 1.5rem;
     cursor: pointer;
+    transition: transform 0.2s;
+    color: white;
 }
 
 .btn-favorite.active {
-    color: black;
-    transform: scale(1.2);
+    color: red;
 }

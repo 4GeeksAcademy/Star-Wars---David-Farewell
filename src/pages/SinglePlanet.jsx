@@ -19,18 +19,20 @@ const SinglePlanet = () => {
     return (
         <div className="container text-center mt-5">
             {loading ? <p>Loading...</p> : planet && (
-                <>
-                    <h1>{planet.name}</h1>
+                <div className="planet-container">
                     <img 
                         src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/planets/${id}.jpg`} 
                         alt={planet.name} 
-                        className="img-fluid rounded"
+                        className="planet-image"
                     />
-                    <p><strong>Climate:</strong> {planet.climate}</p>
-                    <p><strong>Terrain:</strong> {planet.terrain}</p>
-                    <p><strong>Population:</strong> {planet.population}</p>
-                    <Link to="/" className="btn btn-dark mt-3">Back to Home</Link>
-                </>
+                    <div className="planet-stats">
+                        <h1>{planet.name}</h1>
+                        <p><strong>Climate:</strong> {planet.climate}</p>
+                        <p><strong>Terrain:</strong> {planet.terrain}</p>
+                        <p><strong>Population:</strong> {planet.population}</p>
+                        <Link to="/" className="back-button">⬅ Back to Home</Link>
+                    </div>
+                </div>
             )}
         </div>
     );

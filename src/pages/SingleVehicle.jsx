@@ -19,18 +19,20 @@ const SingleVehicle = () => {
     return (
         <div className="container text-center mt-5">
             {loading ? <p>Loading...</p> : vehicle && (
-                <>
-                    <h1>{vehicle.name}</h1>
+                <div className="vehicle-container">
                     <img 
                         src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/vehicles/${id}.jpg`} 
                         alt={vehicle.name} 
-                        className="img-fluid rounded"
+                        className="vehicle-image"
                     />
-                    <p><strong>Model:</strong> {vehicle.model}</p>
-                    <p><strong>Manufacturer:</strong> {vehicle.manufacturer}</p>
-                    <p><strong>Cost in Credits:</strong> {vehicle.cost_in_credits}</p>
-                    <Link to="/" className="btn btn-dark mt-3">Back to Home</Link>
-                </>
+                    <div className="vehicle-stats">
+                        <h1>{vehicle.name}</h1>
+                        <p><strong>Model:</strong> {vehicle.model}</p>
+                        <p><strong>Manufacturer:</strong> {vehicle.manufacturer}</p>
+                        <p><strong>Cost in Credits:</strong> {vehicle.cost_in_credits}</p>
+                        <Link to="/" className="back-button">⬅ Back to Home</Link>
+                    </div>
+                </div>
             )}
         </div>
     );
