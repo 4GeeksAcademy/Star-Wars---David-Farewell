@@ -1,13 +1,23 @@
 import { useGlobalReducer } from "../hooks/useGlobalReducer";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Favorites = () => {
     const { store, dispatch } = useGlobalReducer();
     const [isOpen, setIsOpen] = useState(false);
 
+    // Cargar favoritos desde localStorage al iniciar
+    useEffect(() => {
+        const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        dispatch({ type: "SET_FAVORITES", payload: storedFavorites });
+    }, [dispatch]);
+
     const removeFavorite = (item) => {
+        const updatedFavorites = store.favorites.filter(fav => fav.uid !== item.uid);
         dispatch({ type: "REMOVE_FAVORITE", payload: item });
+
+        // LkocalStorage
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     };
 
     return (

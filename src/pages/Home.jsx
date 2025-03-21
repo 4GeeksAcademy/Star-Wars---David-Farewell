@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         setLoading(true);
 
-        // Llamadas a la API con .then() en vez de async/await
+    
         Promise.all([
             fetch("https://www.swapi.tech/api/people").then(res => res.json()),
             fetch("https://www.swapi.tech/api/planets").then(res => res.json()),
@@ -26,7 +26,7 @@ const Home = () => {
         .catch(error => console.error("Error fetching data:", error));
     }, []);
 
-    // Función para obtener imágenes según la categoría
+    // Obtener imagenes por categoria
     const getImage = (category, id) =>
         `https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/${category}/${id}.jpg`;
 
