@@ -14,11 +14,38 @@
 }
 
 /* Fondo general dark */
+/* Fondo animado */
 body {
-    background-color: #0b0b0b;
-    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExemxrc3MyNDY3ODZtZG1zOGp3ZnVxbDdpcDhsdHp4eXYwcGQ4dDZjZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1ylebTFyDHaa46IDgO/giphy.gif')
+      no-repeat center center fixed;
+    background-size: cover;
     font-family: Arial, sans-serif;
-}
+    z-index: 1;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* Capa contraste */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(5, 0, 0, 0.75);
+    z-index: 0;
+  }
+  
+  /* Todo encima del fondo */
+  * {
+    position: relative;
+    z-index: 1;
+  }
+  
 
 /* Contenedor principal */
 .container {
@@ -172,7 +199,7 @@ body {
     pointer-events: auto;
 }
 
-/* 🔍 Search Input */
+/* Search Input */
 .search-input {
     display: block;
     margin: 20px auto 40px;
@@ -180,12 +207,12 @@ body {
     font-size: 1rem;
     border-radius: 8px;
     border: none;
-    width: 60%;
-    max-width: 500px;
-    background-color: #1b1b1b;
+    width: 80%;
+    max-width: 900px;
+    background-color: #000000;
     color: #ffffff;
     text-align: center;
-    box-shadow: 0 0 8px rgb(0, 0, 0);
+    box-shadow: 0 0 5px rgb(255, 255, 255);
   }
   
   .search-input::placeholder {
@@ -199,13 +226,17 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 100px;
-    background-color: #111;
-    border: 1px solid #ffffff29;
+    background-color: rgba(17, 17, 17, 0.35); /* fondo semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     padding: 40px;
     margin: 50px auto;
     max-width: 1000px;
-    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.155);
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.1);
+  
+    /* Efecto vidrio glaseado */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
   
   .detail-image {

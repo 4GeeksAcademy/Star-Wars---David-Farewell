@@ -64,7 +64,7 @@ const Home = () => {
         pagination={{ clickable: true }}
         loop={true}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={4}
       >
         {filterItems(characters).map((char) => (
           <SwiperSlide key={char.uid}>
@@ -93,7 +93,7 @@ const Home = () => {
         pagination={{ clickable: true }}
         loop={true}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={4}
       >
         {filterItems(planets).map((planet) => (
           <SwiperSlide key={planet.uid}>
@@ -122,7 +122,7 @@ const Home = () => {
         pagination={{ clickable: true }}
         loop={true}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={4}
       >
         {filterItems(vehicles).map((vehicle) => (
           <SwiperSlide key={vehicle.uid}>
