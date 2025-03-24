@@ -19,7 +19,13 @@ const SingleCharacter = () => {
   const getImage = (id) =>
     `https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/characters/${id}.jpg`;
 
-  if (loading) return <div className="text-center text-white">Loading...</div>;
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="card-detail">
