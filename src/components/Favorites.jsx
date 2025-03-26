@@ -34,7 +34,7 @@ const Favorites = () => {
                             store.favorites.map(fav => (
                                 <li key={fav.uid}>
                                     <Link to={`/${fav.type}/${fav.uid}`}>{fav.name}</Link>
-                                    <button onClick={() => removeFavorite(fav)}>❌</button>
+                                    <button onClick={() => removeFavorite(fav)}>✖</button>
                                 </li>
                             ))
                         )}

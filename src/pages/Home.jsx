@@ -69,7 +69,7 @@ const Home = () => {
               <div className="overlay">
                 <h5>{char.name}</h5>
                 <div className="buttons">
-                  <Link to={`/character/${char.uid}`} className="btn-dark">View More</Link>
+                  <Link to={`/character/${char.uid}`} className="btn-dark">Details</Link>
                   <FavoriteButton item={{ uid: char.uid, name: char.name, type: "character" }} />
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Home = () => {
               <div className="overlay">
                 <h5>{planet.name}</h5>
                 <div className="buttons">
-                  <Link to={`/planet/${planet.uid}`} className="btn-dark">View More</Link>
+                  <Link to={`/planet/${planet.uid}`} className="btn-dark">Details</Link>
                   <FavoriteButton item={{ uid: planet.uid, name: planet.name, type: "planet" }} />
                 </div>
               </div>
@@ -105,7 +105,7 @@ const Home = () => {
               <div className="overlay">
                 <h5>{vehicle.name}</h5>
                 <div className="buttons">
-                  <Link to={`/vehicle/${vehicle.uid}`} className="btn-dark">View More</Link>
+                  <Link to={`/vehicle/${vehicle.uid}`} className="btn-dark">Details</Link>
                   <FavoriteButton item={{ uid: vehicle.uid, name: vehicle.name, type: "vehicle" }} />
                 </div>
               </div>
