@@ -1,7 +1,9 @@
 const Footer = () => {
     return (
-        <footer className="footer mt-auto py-3 text-center">
-            <p>Made with 🤍 by David Farewell</p>
+        <footer className="custom-footer">
+            <p>
+            "Que la Fuerza nos acompañó: ningún fan de Star Wars ni backend developer fue dañado en esta misión."
+            </p>
         </footer>
     );
 };

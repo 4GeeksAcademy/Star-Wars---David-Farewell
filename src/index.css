@@ -351,3 +351,61 @@ body::before {
 .favorites-list button:hover {
   color: rgb(255, 255, 255);
 }
+
+
+/*--------------Fooooter----------*/
+
+.custom-footer {
+  background: rgba(0, 0, 0, 0.297);
+  color: rgba(255, 255, 255, 0.105);
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  box-shadow: 0 -2px 50px rgba(0, 0, 0, 0.375);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 60px;
+  z-index: 2; 
+  position: relative; 
+}
+
+
+.custom-footer span {
+  color: #ffffff85;
+  font-weight:lighter;
+  letter-spacing: 1px;
+}
+
+.custom-footer a {
+  color:#ffffff85;
+  text-decoration: none;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+
+
+/*--------------Navbar estilo oscuro --------------*/
+
+.navbar {
+  background: rgba(0, 0, 0, 0.236) !important;
+  box-shadow: 0 2px 50px rgba(0, 0, 0, 0.577);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.138);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  position: relative;
+}
+
+.navbar .navbar-brand {
+  font-family: 'StarJedi', sans-serif;
+  font-size: 1.8rem;
+  color: #ffd500 !important;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 5px #ffc800,
+    0 0 5px #ffce1f,
+    0 0 10px rgba(255, 255, 255, 0.2);
+}
